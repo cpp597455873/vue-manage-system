@@ -36,6 +36,9 @@ const urlList = ref([{
 }, {
   "url": "http://182.43.15.227:19001",
   "name": "minio"
+}, {
+  "url": "http://182.43.15.227:19090",
+  "name": "prometheus"
 }])
 
 const options = {
