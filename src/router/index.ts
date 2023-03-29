@@ -5,13 +5,22 @@ import Home from '../views/home.vue';
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/homepage',
     },
     {
         path: '/',
         name: 'Home',
         component: Home,
         children: [
+            {
+                path: '/homepage',
+                name: 'homepage',
+                meta: {
+                    title: '导航',
+                    permiss: '1',
+                },
+                component: () => import(/* webpackChunkName: "dashboard" */ '../views/homepage.vue'),
+            },
             {
                 path: '/dashboard',
                 name: 'dashboard',

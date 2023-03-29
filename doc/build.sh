@@ -1,0 +1,1 @@
+npm run build && scp -r ../dist/** root@tyy:/usr/share/nginx/html/

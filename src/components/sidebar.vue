@@ -58,6 +58,12 @@ import { useRoute } from 'vue-router';
 const items = [
     {
         icon: 'Odometer',
+        index: 'homepage',
+        title: '导航',
+        permiss: '1',
+    },
+    {
+        icon: 'Odometer',
         index: '/dashboard',
         title: '系统首页',
         permiss: '1',
