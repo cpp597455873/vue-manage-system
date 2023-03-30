@@ -1,45 +1,69 @@
 <template>
   <div>
-    <el-row :gutter="20">
-      <el-col :span="6" v-for="item in urlList">
-        <el-link :href="item.url" target="_blank"><span class="url_hint">{{ item.name }}</span>
-          {{ item.url }}
-        </el-link>
-      </el-col>
-    </el-row>
+    <el-table :data="urlList" style="width: 100%">
+      <el-table-column label="url" width="300">
+        <template #default="scope">
+          <el-link :href="scope.row.url" target="_blank"><span class="url_hint">{{ scope.row.name }}</span></el-link>
+        </template>
+      </el-table-column>
+
+      <el-table-column label="url">
+        <template #default="scope">
+          <el-link :href="scope.row.url" target="_blank"><span class="url_hint">{{ scope.row.url }}</span></el-link>
+        </template>
+      </el-table-column>
+    </el-table>
+
+<!--    <el-row :gutter="20">-->
+<!--      <el-col :span="6" v-for="item in urlList">-->
+<!--        <el-link :href="item.url" target="_blank"><span class="url_hint">{{ item.name }}</span>-->
+<!--          {{ item.url }}-->
+<!--        </el-link>-->
+<!--      </el-col>-->
+<!--    </el-row>-->
   </div>
 </template>
 
 <script setup lang="ts" name="dashboard">
-import Schart from 'vue-schart';
 import {reactive, ref} from 'vue';
-import imgurl from '../assets/img/img.jpg';
 
 const name = localStorage.getItem('ms_username');
 const role: string = name === 'admin' ? '超级管理员' : '普通用户';
 
-const urlList = ref([{
-  "url": "http://182.43.15.227:7500",
-  "name": "frps admin"
-}, {
-  "url": "http://182.43.15.227:17400",
-  "name": "frpc201"
-}, {
-  "url": "http://182.43.15.227:18500",
-  "name": "consul"
-}, {
-  "url": "http://182.43.15.227:13000",
-  "name": "grafana"
-}, {
-  "url": "http://182.43.15.227:18848",
-  "name": "nacos"
-}, {
-  "url": "http://182.43.15.227:19001",
-  "name": "minio"
-}, {
-  "url": "http://182.43.15.227:19090",
-  "name": "prometheus"
-}])
+const urlList = ref([
+  {
+    "url": "http://182.43.15.227:7500",
+    "name": "frps admin"
+  },
+  {
+    "url": "http://182.43.15.227:17400",
+    "name": "frpc201"
+  },
+  {
+    "url": "http://182.43.15.227:17401",
+    "name": "frpc200"
+  },
+  {
+    "url": "http://182.43.15.227:18500",
+    "name": "consul"
+  },
+  {
+    "url": "http://182.43.15.227:13000",
+    "name": "grafana"
+  },
+  {
+    "url": "http://182.43.15.227:18848",
+    "name": "nacos"
+  },
+  {
+    "url": "http://182.43.15.227:19001",
+    "name": "minio"
+  },
+  {
+    "url": "http://182.43.15.227:19090",
+    "name": "prometheus"
+  }
+    ])
 
 const options = {
   type: 'bar',
